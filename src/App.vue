@@ -1,9 +1,19 @@
 <template>
   <v-app>
     <v-toolbar>
-      <v-img fluid max-height="50" max-width="50" v-bind:src="'https://pbs.twimg.com/profile_images/463038072846688256/NDuIYRqn.jpeg'"></v-img>       
+      <v-img
+        fluid
+        max-height="50"
+        max-width="50"
+        v-bind:src="'https://pbs.twimg.com/profile_images/463038072846688256/NDuIYRqn.jpeg'"
+      ></v-img>
       <v-toolbar-title class="display-1 font-weight-light">MVNU Cafe Menu</v-toolbar-title>
-        </v-toolbar>
+      <v-spacer></v-spacer>
+    <v-toolbar-items class="hidden-sm-and-down">
+      <i title="MVNU Cafe Twitter" onclick="window.location = 'https://twitter.com/MVNUDining'" class="material-icons linkIcon">link</i>
+    </v-toolbar-items>
+    </v-toolbar>
+    <mvnuWeather v-bind:height="'220'" v-bind:width="'100%'" v-bind:border="'0'" />
     <v-container>
       <!-- <cafeTitle v-bind:pic="'https://pbs.twimg.com/profile_images/463038072846688256/NDuIYRqn.jpeg'" /> -->
       <tweetMenu
@@ -18,12 +28,12 @@
 
 <script>
 import tweetMenu from "./components/tweetMenu";
-import cafeTitle from "./components/cafeTitle";
+import mvnuWeather from "./components/mvnuWeather";
 export default {
   name: "App",
   components: {
     tweetMenu,
-    cafeTitle
+    mvnuWeather
   },
 
   data() {
@@ -43,4 +53,11 @@ export default {
 </script>
 
 <style>
+.linkIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  cursor: pointer;
+}
 </style>

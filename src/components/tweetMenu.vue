@@ -1,20 +1,18 @@
 <template>
   <v-container>
     <v-layout align-center justify-center column>
-    <v-flex xs2 sm6 md4>
-    <v-card class="text-sm-left elevation-12">
-      <table class="menuTable">
-        <tr>
-          <th class="blue lighten-3 text-xs-center">
-            {{tweetDate}}
-          </th>
-        </tr>
-        <tr v-for="item in menuArray" :key="item">
-          <td>{{item}}</td>
-        </tr>
-      </table> 
-    </v-card>
-    </v-flex>
+      <v-flex xs2 sm6 md4>
+        <v-card class="text-sm-left elevation-12">
+          <table class="menuTable">
+            <tr>
+              <th class="blue lighten-3 header text-xs-center">{{tweetDate}}</th>
+            </tr>
+            <tr v-for="item in menuArray" :key="item">
+              <td>{{item}}</td>
+            </tr>
+          </table>
+        </v-card>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
@@ -22,12 +20,12 @@
 <script>
 export default {
   name: "tweetMenu",
- 
+
   props: {
     text: String,
     tweetDate: String
   },
- data () {
+  data() {
     return {
       singleTweet: this.text,
       menuArray: []
@@ -38,11 +36,12 @@ export default {
     //console.log(this.singleTweet);
     this.menuArray = this.text.split("\n");
     for (let i = 0; i < this.menuArray.length; i++) {
-      this.menuArray[i] = this.menuArray[i].replace(/&amp/g, '&').replace('&;', '&');
+      this.menuArray[i] = this.menuArray[i]
+        .replace(/&amp/g, "&")
+        .replace("&;", "&");
     }
     //let cutStr = s.indexOf('+');
     //console.log(this.menuArray);
-    
   }
 };
 </script>
@@ -53,13 +52,14 @@ export default {
 }
 .menuTable {
   border: 1px solid;
-    border-spacing: 0;
-    max-width: 380px;
+  border-spacing: 0;
+  max-width: 380px;
 }
-th,td {
-    border: 1px solid;
-    font-family: arial;
-    font-size: 17px;
+th,
+td {
+  border: 1px solid;
+  font-family: arial;
+  font-size: 17px;
 }
 .dateTitle {
   border: 3px solid;
