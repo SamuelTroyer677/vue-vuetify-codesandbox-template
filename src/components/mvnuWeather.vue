@@ -16,7 +16,7 @@ export default {
   props: {
     height: String,
     width: String,
-    border: String
+    border: String,
   },
   mounted: function() {;
   }
